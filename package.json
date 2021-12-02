@@ -6,7 +6,7 @@
   "repository": "github:jon-codes/aoc-2021",
   "license": "MIT",
   "scripts": {
-    "test": "ava --serial --verbose",
+    "test": "ava --serial",
     "prepare": "husky install"
   },
   "engines": {
@@ -19,6 +19,7 @@
   "ava": {
     "files": [
       "day-*/**"
-    ]
+    ],
+    "verbose": true
   }
 }
