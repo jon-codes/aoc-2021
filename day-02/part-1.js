@@ -6,28 +6,27 @@
  * @returns {number}
  */
 const solution = (input) => {
-  let x = 0,
-    y = 0;
+  let x = 0;
+  let d = 0;
 
   for (const line of input) {
-    const parsed = line.split(" ");
-    const dir = parsed[0];
-    const mag = parseInt(parsed[1]);
+    const [dir, strMag] = line.split(" ");
+    const mag = parseInt(strMag);
 
     switch (dir) {
-      case "forward":
-        x = x + mag;
-        break;
       case "up":
-        y = y - mag;
+        d -= mag;
         break;
       case "down":
-        y = y + mag;
+        d += mag;
+        break;
+      case "forward":
+        x += mag;
         break;
     }
   }
 
-  return x * y;
+  return x * d;
 };
 
 require("../utils/test")(solution, 150);

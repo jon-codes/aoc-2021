@@ -6,16 +6,10 @@
  * @returns {number}
  */
 const solution = (input) => {
-  let prev,
-    count = 0;
+  let count = 0;
 
-  for (const line of input) {
-    const value = parseInt(line);
-
-    if (prev && value > prev) count++;
-
-    prev = value;
-  }
+  for (let i = 1; i < input.length; i++)
+    if (parseInt(input[i]) > parseInt(input[i - 1])) count++;
 
   return count;
 };
