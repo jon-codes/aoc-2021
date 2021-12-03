@@ -43,4 +43,20 @@ const solution = (input) => {
   return parseInt(co2Items[0], 2) * parseInt(oxyItems[0], 2);
 };
 
-require("../utils/test")(solution, 230);
+require("../utils/test")(solution, {
+  sample: [
+    "00100",
+    "11110",
+    "10110",
+    "10111",
+    "10101",
+    "01111",
+    "00111",
+    "11100",
+    "10000",
+    "11001",
+    "00010",
+    "01010",
+  ],
+  expected: 230,
+});

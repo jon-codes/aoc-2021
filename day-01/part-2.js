@@ -14,4 +14,9 @@ const solution = (input) => {
   return count;
 };
 
-require("../utils/test")(solution, 5);
+const fixture = {
+  sample: [199, 200, 208, 210, 200, 207, 240, 269, 260, 263],
+  expected: 5,
+};
+
+require("../utils/test")(solution, fixture);

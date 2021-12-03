@@ -1,0 +1,20 @@
+// @ts-check
+
+/**
+ *
+ * @param {string[]} input
+ * @returns {number}
+ */
+const solution = (input) => {
+  // TODO: implement solution
+
+  return 1;
+};
+
+const fixture = {
+  // TODO: add fixture data
+  sample: [],
+  expected: undefined,
+};
+
+require("../utils/test")(solution, fixture);

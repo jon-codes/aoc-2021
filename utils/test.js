@@ -5,10 +5,7 @@ const test = require("ava").default;
 const loadFixture = (dir, src) =>
   readFileSync(join(dir, src), "utf-8").trim().split("\n");
 
-const sampleTest = (t, solution, expected) => {
-  const testDir = dirname(test.meta.file);
-  const sample = loadFixture(testDir, "/fixtures/sample.txt");
-
+const sampleTest = (t, solution, sample, expected) => {
   const result = solution(sample);
 
   t.is(result, expected);
@@ -16,21 +13,21 @@ const sampleTest = (t, solution, expected) => {
 
 sampleTest.title = () => "sample";
 
-const inputTest = (t, solution) => {
-  const testDir = dirname(test.meta.file);
-  const input = loadFixture(testDir, "/fixtures/input.txt");
-
+const inputTest = (t, solution, input) => {
   const result = solution(input);
 
   t.log("Answer:", result);
   t.pass();
 };
 
-inputTest.title = () => "title";
+inputTest.title = () => "solution";
 
-const testSolution = (solution, expected) => {
-  test("sample", sampleTest, solution, expected);
-  test("input", inputTest, solution);
+const testSolution = (solution, { sample, expected }) => {
+  const testDir = dirname(test.meta.file);
+  const input = loadFixture(testDir, "input.txt");
+
+  test("sample", sampleTest, solution, sample, expected);
+  test("input", inputTest, solution, input);
 };
 
 module.exports = testSolution;

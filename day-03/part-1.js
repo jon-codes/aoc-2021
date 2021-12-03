@@ -34,4 +34,22 @@ const solution = (input) => {
   return parseInt(y, 2) * parseInt(e, 2);
 };
 
-require("../utils/test")(solution, 198);
+const fixture = {
+  sample: [
+    "00100",
+    "11110",
+    "10110",
+    "10111",
+    "10101",
+    "01111",
+    "00111",
+    "11100",
+    "10000",
+    "11001",
+    "00010",
+    "01010",
+  ],
+  expected: 198,
+};
+
+require("../utils/test")(solution, fixture);
