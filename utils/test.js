@@ -20,7 +20,7 @@ const inputTest = (t, solution, input) => {
   t.pass();
 };
 
-inputTest.title = () => "solution";
+inputTest.title = () => "input";
 
 const testSolution = (solution, { sample, expected }) => {
   const testDir = dirname(test.meta.file);

@@ -6,7 +6,7 @@
   "repository": "github:jon-codes/aoc-2021",
   "license": "MIT",
   "scripts": {
-    "new-day": "node scripts/new-day.js",
+    "generate": "node scripts/generate.js",
     "test": "ava --serial",
     "prepare": "husky install"
   },
@@ -14,7 +14,6 @@
     "node": "16.13.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.11",
     "ava": "^3.15.0",
     "husky": "^7.0.4"
   },

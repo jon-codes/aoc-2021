@@ -10,7 +10,7 @@ const solution = (input) => {
 
   for (let i = 1; i < input.length; i++)
     if (parseInt(input[i]) > parseInt(input[i - 1])) count++;
-
+  debugger;
   return count;
 };
 
