@@ -31,9 +31,4 @@ const solution = (input) => {
   return x * d;
 };
 
-const fixture = {
-  sample: ["forward 5", "down 5", "forward 8", "up 3", "down 8", "forward 2"],
-  expected: 900,
-};
-
-require("../utils/test")(solution, fixture);
+require("../utils/test")(solution, 900);

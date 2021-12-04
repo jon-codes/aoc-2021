@@ -6,6 +6,9 @@ const {
   mkdirSync,
   copyFileSync,
   createWriteStream,
+  writeFileSync,
+  closeSync,
+  openSync,
 } = require("fs");
 const { resolve } = require("path");
 const { request } = require("https");
@@ -65,13 +68,22 @@ if (Date.now() < timestamp) {
 
 const paddedDay = day < 10 ? "0" + day : day.toString();
 
-mkdirSync(resolve(__dirname, "..", `day-${paddedDay}`));
+mkdirSync(resolve(__dirname, "..", `day-${paddedDay}`, "fixtures"), {
+  recursive: true,
+});
 
 for (const file of ["part-1.js", "part-2.js"])
   copyFileSync(
     resolve(__dirname, "template"),
     resolve(__dirname, "..", `day-${paddedDay}`, file)
   );
+
+closeSync(
+  openSync(
+    resolve(__dirname, "..", `day-${paddedDay}`, "fixtures", "sample.txt"),
+    "w"
+  )
+);
 
 const cacheDir = resolve(__dirname, "..", ".cache");
 const cachePath = resolve(__dirname, "..", ".cache", `day-${paddedDay}`);
@@ -81,7 +93,7 @@ if (existsSync(cachePath)) {
 
   copyFileSync(
     cachePath,
-    resolve(__dirname, "..", `day-${paddedDay}`, "input.txt")
+    resolve(__dirname, "..", `day-${paddedDay}`, "fixtures", "input.txt")
   );
 } else {
   if (!existsSync(cacheDir)) mkdirSync(cacheDir);
@@ -99,7 +111,7 @@ if (existsSync(cachePath)) {
       response.on("close", () => {
         copyFileSync(
           cachePath,
-          resolve(__dirname, "..", `day-${paddedDay}`, "input.txt")
+          resolve(__dirname, "..", `day-${paddedDay}`, "fixtures", "input.txt")
         );
       });
     }

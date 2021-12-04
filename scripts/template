@@ -11,10 +11,4 @@ const solution = (input) => {
   return 1;
 };
 
-const fixture = {
-  // TODO: add fixture data
-  sample: [],
-  expected: undefined,
-};
-
-require("../utils/test")(solution, fixture);
+require("../utils/test")(solution, undefined); // TODO: add expected output

@@ -22,9 +22,10 @@ const inputTest = (t, solution, input) => {
 
 inputTest.title = () => "input";
 
-const testSolution = (solution, { sample, expected }) => {
+const testSolution = (solution, expected) => {
   const testDir = dirname(test.meta.file);
-  const input = loadFixture(testDir, "input.txt");
+  const sample = loadFixture(testDir, "fixtures/sample.txt");
+  const input = loadFixture(testDir, "fixtures/input.txt");
 
   test("sample", sampleTest, solution, sample, expected);
   test("input", inputTest, solution, input);
