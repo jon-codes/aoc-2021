@@ -31,6 +31,18 @@ const buildGraph = (lines) => {
 
 /**
  *
+ * @param {number[][]} graph
+ * @returns {number}
+ */
+const countOverTwo = (graph) =>
+  graph.reduce(
+    (acc, row) =>
+      acc + row.reduce((acc, cell) => (cell > 1 ? acc + 1 : acc), 0),
+    0
+  );
+
+/**
+ *
  * @param {string[]} input
  * @returns {number}
  */
@@ -45,15 +57,11 @@ const solution = (input) => {
     ].map(([a, b]) => (a === b ? 0 : a < b ? 1 : -1));
 
     if (dx === 0 || dy === 0)
-      for (let x = x1, y = y1; x != x2 + dx || y != y2 + dy; x += dx, y += dy)
+      for (let x = x1, y = y1; x !== x2 + dx || y !== y2 + dy; x += dx, y += dy)
         graph[y][x]++;
   });
 
-  return graph.reduce(
-    (acc, row) =>
-      acc + row.reduce((acc, cell) => (cell > 1 ? acc + 1 : acc), 0),
-    0
-  );
+  return countOverTwo(graph);
 };
 
 require("../utils/test")(solution, 5);
