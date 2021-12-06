@@ -13,9 +13,7 @@ const parseInput = (input) => input[0].split(",").map((n) => parseInt(n));
  * @returns {number}
  */
 const solution = (input) => {
-  let fishes = parseInput(input);
-
-  const counts = fishes.reduce(
+  const counts = parseInput(input).reduce(
     (acc, day) => {
       acc[day]++;
       return acc;
