@@ -5,7 +5,7 @@
  * @param {string[]} input
  * @return {number[]}
  */
-const parseInput = (input) => input[0].split(",").map((n) => parseInt(n));
+const parseInput = (input) => input[0].split(",").map((str) => parseInt(str));
 
 /**
  *
