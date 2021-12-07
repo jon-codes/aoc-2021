@@ -1,4 +1,5 @@
 // @ts-check
+
 /**
  *
  * @param {string[]} input
